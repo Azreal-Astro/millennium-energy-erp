@@ -1,0 +1,194 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ERP Professional Blue/Teal Theme Design System */
+
+@layer base {
+  :root {
+    --background: 15 23 42; /* slate-900 */
+    --foreground: 248 250 252; /* slate-50 */
+
+    --card: 30 41 59; /* slate-800 */
+    --card-foreground: 248 250 252;
+
+    --popover: 15 23 42;
+    --popover-foreground: 248 250 252;
+
+    --primary: 59 130 246; /* blue-500 */
+    --primary-foreground: 248 250 252;
+
+    --secondary: 20 184 166; /* teal-500 */
+    --secondary-foreground: 15 23 42;
+
+    --muted: 51 65 85; /* slate-600 */
+    --muted-foreground: 148 163 184; /* slate-400 */
+
+    --accent: 6 182 212; /* cyan-500 */
+    --accent-foreground: 15 23 42;
+
+    --destructive: 239 68 68; /* red-500 */
+    --destructive-foreground: 248 250 252;
+
+    --border: 51 65 85;
+    --input: 30 41 59;
+    --ring: 59 130 246;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 2 6 23; /* slate-950 */
+    --sidebar-foreground: 226 232 240; /* slate-200 */
+    --sidebar-primary: 59 130 246;
+    --sidebar-primary-foreground: 248 250 252;
+    --sidebar-accent: 30 41 59;
+    --sidebar-accent-foreground: 226 232 240;
+    --sidebar-border: 51 65 85;
+    --sidebar-ring: 59 130 246;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-erp-dark text-erp-silver font-sans antialiased;
+  }
+
+  /* Custom scrollbar for professional theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-erp-slate;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-erp-blue rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-erp-accent;
+  }
+}
+
+@layer components {
+  .glass-morphism {
+    @apply backdrop-blur-sm bg-white/5 border border-white/10;
+  }
+
+  .glow-box {
+    @apply shadow-lg shadow-erp-blue/20;
+  }
+
+  .nav-item {
+    @apply flex items-center px-4 py-3 text-erp-silver hover:text-erp-accent hover:bg-erp-slate/50 transition-all duration-200 cursor-pointer rounded-lg;
+  }
+
+  .nav-item.active {
+    @apply text-erp-accent bg-erp-slate/70 border-l-4 border-erp-blue;
+  }
+
+  .input-glow:focus {
+    @apply ring-2 ring-erp-blue shadow-lg shadow-erp-blue/25;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-erp-blue/20;
+  }
+
+  .metric-card {
+    @apply glass-morphism glow-box p-6 rounded-xl;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-erp-blue to-erp-accent hover:from-erp-blue-glow hover:to-erp-accent-glow text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-erp-blue/30;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-erp-slate to-erp-slate-light hover:from-erp-slate-light hover:to-erp-slate text-erp-silver font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 border border-erp-blue/30 hover:border-erp-blue/50;
+  }
+}
+
+/* Professional loading animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading-shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 200px 100%;
+}
+
+/* Enhanced Professional Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.5), 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
